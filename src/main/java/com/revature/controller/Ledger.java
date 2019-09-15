@@ -29,17 +29,8 @@ public class Ledger {
 
 	public void balance(Account account) {
 	
-		//double balance = 0;
-		
-//		for (Account account : accounts) {
-//	        //find match
-//	        if (account.getAccountNumber().equals(acctNo)) {
-//	        	balance = account.getBalance();
 	        	System.out.println("We have " + account.getClient() + "'s account with us.\n" +
 	        			"Your account balance is: " + account.getBalance());
-//	        }
-//		}
-	      
 	}
 	
 	
@@ -50,27 +41,19 @@ public class Ledger {
 		System.out.println("How much would you like to deposit? ");
 		Scanner inputAmount = new Scanner( System.in ); 
 	    int input = inputAmount.nextInt();
-
-//	    //loop through all available accounts
-//	    for (Account account : accounts) {
-//	        //find match
-//	        if (account.getAccountNumber().equals(accountNumber)) {
-//	            //if checking account
-	        	 if (account.getAccountType().equals("checking")) {
+	    if (account.getAccountType().equals("checking")) {
 	                account.deposit(input);
 	                System.out.println("Your new " + account.getAccountType() + 
 	                		" account balance is: " + account.getBalance());
-	            }
+	    }
 
 	            //if savings account add 5%
-	        	 if (account.getAccountType().equals("saving")) {
+	    if (account.getAccountType().equals("saving")) {
 	                input *= 1.05;
 	                account.deposit(input);
 	                System.out.println("Your new " + account.getAccountType() + " "
 	                		+ "account balance is: " + account.getBalance());
-	            }
-//	        }
-//	    }
+	    }
 	}
 	
 
@@ -83,28 +66,18 @@ public class Ledger {
 		Scanner inputAmount = new Scanner( System.in ); 
 	    int input = inputAmount.nextInt();
 
-		  
-	    //loop through all available accounts
-//	    for (Account account : accounts) {
-//
-//	        //find match
-//	        if (account.getAccountNumber().equals(accountNumber)) {
-
 	            //if checking account
-	            if (account.getAccountType().equals("checking")) {
+	    if (account.getAccountType().equals("checking")) {
 	                account.withdraw(input);
 	                System.out.println("Your new " + account.getAccountType() + " "
 	                		+ "account balance is: " + account.getBalance());
-	            }
+	    }
 
 	            //if savings account add $2 fee
-	            if (account.getAccountType().equals("saving")) {
+	    if (account.getAccountType().equals("saving")) {
 	                account.withdraw(input + 2.00);
 	                System.out.println("Your new " + account.getAccountType() + " "
 	                		+ "account balance is: " + account.getBalance());
-	               
-//	            }
-//	        }
 	    }
 	}
 
