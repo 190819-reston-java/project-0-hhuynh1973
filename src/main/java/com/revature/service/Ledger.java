@@ -1,4 +1,4 @@
-package com.revature.controller;
+package com.revature.service;
 import java.util.Scanner;
 import com.revature.model.Account;
 
@@ -47,7 +47,7 @@ public class Ledger {
 	                		" account balance is: " + account.getBalance());
 	    }
 
-	            //if savings account add 5%
+	    //if savings account add 5%
 	    if (account.getAccountType().equals("saving")) {
 	                input *= 1.05;
 	                account.deposit(input);
