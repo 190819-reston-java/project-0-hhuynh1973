@@ -66,7 +66,7 @@ public class ATM {
 		    		if ( account.getPin() == inputP ) {
 		    			  System.out.println("Welcome " + account.getClient());
 		    			  userAuthenticated = true;
-		    			  performTransactions(account); // user is now authenticated 
+		    			  performTransactions(selectAcctNo, account); // user is now authenticated 
 		    			  
 		    		}
 		    		else {
@@ -91,7 +91,7 @@ public class ATM {
 				
 
 	   // display the main menu and perform transactions
-	   private Ledger performTransactions(Account acct) 
+	   private Ledger performTransactions(AccountDAO selectAcctNo, Account acct) 
 	   {
 	      // local variable to store transaction currently being processed
 	      //Ledger currentTransaction = new Ledger(currentAccountNumber);
@@ -109,18 +109,21 @@ public class ATM {
 	         {
 	            // user chose to perform one of three transaction types
 	            case BALANCE_INQUIRY: 
-	            	myLedger = new Ledger(acct);
-	            	myLedger.balance(acct);
+	            	myLedger = new Ledger(selectAcctNo, acct);
+	            	myLedger.balance();
+	            	
 	            	break;
 	            	
 	            case WITHDRAWAL: 
-	            	myLedger = new Ledger(acct);
-	            	myLedger.withdraw(acct);
+	            	myLedger = new Ledger(selectAcctNo, acct);
+	            	myLedger.withdraw();
+	            	selectAcctNo.updateAccount(acct);
 	            	break;
 	            	
 	            case DEPOSIT:
-	            	myLedger = new Ledger(acct);
-	            	myLedger.deposit(acct);
+	            	myLedger = new Ledger(selectAcctNo, acct);
+	            	myLedger.deposit();
+	            	selectAcctNo.updateAccount(acct);
 	               break; 
 	            case EXIT: // user chose to terminate session
 	               System.out.println("\nExiting the system..." );

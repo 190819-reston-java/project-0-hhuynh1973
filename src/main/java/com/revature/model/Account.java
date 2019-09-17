@@ -1,19 +1,17 @@
 package com.revature.model;
 
-
 public class Account {
+	private int id;
 	private int accountNumber;
 	private int pin;
     private double balance;
     private String accountType;
     private String client;
-    
-  
-	
 
 
-	public Account(int accountNumber, int pin, double balance, String accountType, String client) {
+	public Account(int id, int accountNumber, int pin, double balance, String accountType, String client) {
 		super();
+		this.id = id;
 		this.accountNumber = accountNumber;
 		this.pin = pin;
 		this.balance = balance;
@@ -41,6 +39,17 @@ public class Account {
 	public Account(double balance2) {
 		super();
 		this.balance = balance2;
+	}
+
+
+	
+	public int getId() {
+		return id;
+	}
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
 
 
