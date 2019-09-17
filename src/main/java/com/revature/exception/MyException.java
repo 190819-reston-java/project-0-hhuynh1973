@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Scanner;
 
 import com.revature.model.Account;
 import com.revature.service.Ledger;
@@ -25,7 +26,7 @@ public class MyException {
 		}
 		catch(Exception e) {
 			
-			System.out.println(e);
+			System.out.println();
 			
 		}
 		
@@ -41,12 +42,18 @@ public class MyException {
 		Account acct = null;
 		
 		try (Connection conn = ConnectionUtil.getConnection()) {
+			  System.out.println("\nPlease enter your account number: " );
+		      Scanner inputAcct = new Scanner( System.in ); // input account number
+		      int inputA = inputAcct.nextInt();
+		      System.out.println("\nEnter your PIN: " ); // prompt for PIN
+		      Scanner inputPin = new Scanner( System.in ); // input account number
+		      int inputP = inputAcct.nextInt();// input PIN
 	
 			statement = conn.prepareStatement(
 					"SELECT * FROM account WHERE account_number = ? AND pin = ?");
 			//System.out.println(account_number+ pin);
-			statement.setInt(1, 1234);
-			statement.setInt(2, 123);
+			statement.setInt(1, inputA);
+			statement.setInt(2, inputP);
 			
 			
 			//try to execute SQL query
@@ -81,5 +88,6 @@ public class MyException {
 				resultSet.getString("account_type"),
 				resultSet.getString("client"));
 	}
+	
 	
 }
