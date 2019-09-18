@@ -1,4 +1,4 @@
-package util;
+package com.revature.util;
 
 import java.sql.Connection;
 import java.sql.ResultSet;

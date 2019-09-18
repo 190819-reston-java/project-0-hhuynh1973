@@ -8,9 +8,8 @@ import java.util.Scanner;
 
 import com.revature.model.Account;
 import com.revature.service.Ledger;
-
-import util.ConnectionUtil;
-import util.StreamCloser;
+import com.revature.util.ConnectionUtil;
+import com.revature.util.StreamCloser;
 
 public class MyException {
 	

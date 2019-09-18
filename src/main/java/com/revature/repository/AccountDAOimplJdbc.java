@@ -5,8 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import com.revature.model.Account;
-import util.ConnectionUtil;
-import util.StreamCloser;
+import com.revature.util.ConnectionUtil;
+import com.revature.util.StreamCloser;
 
 public class AccountDAOimplJdbc implements AccountDAO {
 
